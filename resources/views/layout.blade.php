@@ -32,7 +32,7 @@
     </div>
 
     <footer>
-        <p> Copyrigth @20201 </p>
+        <p> Copyrigth @2021 </p>
     </footer>
 
 </body>
