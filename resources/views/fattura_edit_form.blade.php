@@ -228,6 +228,38 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </fieldset>
+                <fieldset><legend>DatiTrasporto</legend><!-- Titre du fieldset -->
+                    <fieldset><legend>DatiAnagraficiVettore</legend><!-- Titre du fieldset -->
+                        <fieldset><legend>IdFiscaleIVA</legend><!-- Titre du fieldset -->
+                            <!--  INPUT IdPaese3 -->
+                            <label for="IdPaese3"> IdPaese: </label>
+                            <input id="IdPaese3" type="text" name="IdPaese3" value="{{ old('IdPaese3',$fattura->IdPaese3) }}" class="@error('IdPaese3') is-invalid @enderror">
+                            @error('IdPaese3')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        <!--  INPUT IdCodice3 -->
+                            <label for="IdCodice3">IdCodice: </label>
+                            <input id="IdCodice3" type="text" name="IdCodice3" value="{{ old('IdCodice3',$fattura->IdCodice3) }}" class="@error('IdCodice3') is-invalid @enderror">
+                            @error('IdCodice3')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </fieldset>
+                        <fieldset><legend>IdFiscaleIVA</legend><!-- Titre du fieldset -->
+                            <!--  INPUT Denominazione3 -->
+                            <label for="Denominazione3">Denominazione: </label>
+                            <input id="Denominazione3" type="text" name="Denominazione3" value="{{ old('Denominazione3',$fattura->Denominazione3) }}" class="@error('Denominazione3') is-invalid @enderror">
+                            @error('Denominazione3')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </fieldset>
+                    </fieldset>
+                    <!--  INPUT DataOraConsegna -->
+                    <label for="DataOraConsegna">DataOraConsegna: </label>
+                    <input id="DataOraConsegna" type="text" name="DataOraConsegna" value="{{ old('DataOraConsegna',$fattura->DataOraConsegna) }}" class="@error('DataOraConsegna') is-invalid @enderror">
+                    @error('DataOraConsegna')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </fieldset>
             </fieldset>
             <fieldset><legend>DatiBeniServizi</legend><!-- Titre du fieldset -->
                 <fieldset><legend>DettaglioLinee</legend><!-- Titre du fieldset -->

@@ -45,6 +45,12 @@ class FatturaFactory extends Factory
             'NumItem'=>$this->faker->randomDigitNotNull(),
             'CodiceCUP'=>$this->faker->regexify('[0-9]{3}[a-z]{3}'),
             'CodiceCIG'=>$this->faker->regexify('[a-z]{3}[0-9]{3}'),
+
+            'IdPaese3'=>$this->faker->stateAbbr(),
+            'IdCodice3'=>$this->faker->randomNumber($nbDigits = 9, $strict = true),
+            'Denominazione3'=>$this->faker->company(),
+            'DataOraConsegna'=>$this->faker->iso8601($max = 'now'),
+
             'NumeroLinea'=>$this->faker->numberBetween($min = 1, $max = 20),
             'Descrizione'=>$this->faker->sentence(),
             'Quantita'=>$this->faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 100),

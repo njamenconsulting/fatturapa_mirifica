@@ -46,6 +46,12 @@ class CreateFatturasTable extends Migration
             $table->string('NumItem');
             $table->string('CodiceCUP');
             $table->string('CodiceCIG');
+
+            $table->string('IdPaese3');
+            $table->string('IdCodice3');
+            $table->string('Denominazione3');
+            $table->string('DataOraConsegna');
+
             $table->string('NumeroLinea');
             $table->string('Descrizione');
             $table->string('Quantita');

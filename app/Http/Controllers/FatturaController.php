@@ -78,10 +78,10 @@ class FatturaController extends Controller
             'CodiceCIG' => $request->input('CodiceCIG', '456def')
         ));
         $invoice->setValues('DatiTrasporto', array(
-            'IdPaese' => 'IT',
-            'IdCodice' => '11223344556',
-            'Denominazione' => 'TRASPORTO SRLS',
-            'DataOraConsegna' => '2017-01-10T16:46:12.000+02:00'
+            'IdPaese' => $request->input('IdPaese3'),
+            'IdCodice' => $request->input('IdCodice3'),
+            'Denominazione' => $request->input('Denominazione3'),
+            'DataOraConsegna' => $request->input('DataOraConsegna'),
         ));
         $invoice->setValues('DatiBeniServizi', array(
             'NumeroLinea' => $request->input('NumeroLinea'),
