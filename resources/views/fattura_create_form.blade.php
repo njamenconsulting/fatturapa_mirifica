@@ -1,7 +1,9 @@
 @extends("layout")
 
 @section('content')
-
+    <h3> Fattura elettronica italiana <strong>in XML</strong> (formato FatturaPA)</h3>
+    <a href=" {{ route('fattura-edit') }} ">Fill form</a>
+    </br></br></br>
     <form method="post" action="{{ route('fattura-store') }}"}}>
         @csrf
         <fieldset class="FatturaElettronicaHeader"><legend>FatturaElettronicaHeader</legend>
