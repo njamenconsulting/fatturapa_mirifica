@@ -47,13 +47,13 @@
                         <!--  INPUT IdPaese2 -->
                         <label for="IdPaese2"> IdPaese2: </label>
                         <input id="IdPaese2" type="text" name="IdPaese2" value="{{ old('IdPaese2',$fattura->IdPaese2) }}" class="@error('IdPaese2') is-invalid @enderror">
-                        @error('IdPaese')
+                        @error('IdPaese2')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     <!--  INPUT IdCodice2 -->
                         <label for="IdCodice2">IdCodice2: </label>
                         <input id="IdCodice2" type="text" name="IdCodice2" value="{{ old('IdCodice2',$fattura->IdCodice2) }}" class="@error('IdCodice2') is-invalid @enderror">
-                        @error('IdCodice')
+                        @error('IdCodice2')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </fieldset>

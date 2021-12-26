@@ -7,6 +7,7 @@
         <p>A PHP app for managing italian e-invoice and notice XML formats. (Pacchetto PHP per gestire il formato XML di fatture e notifiche come richiesto dal SdI).</p>
         </br></br>
         <a href="{{ url('fattura/download',$filename) }}">Download XML file</a>
+        <a href="{{ asset($filename) }}">Download XML file2</a>
         </br></br>
         <a href="#">Send XML file by mail</a>
         </br></br></br>

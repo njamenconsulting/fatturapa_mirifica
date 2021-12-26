@@ -40,39 +40,42 @@ class FatturaController extends Controller
             'IdPaese' => $request->input('IdPaese', 'IT')
         ));
         $invoice->setValues('CedentePrestatore', array(
-            'IdPaese' => 'IT',
-            'IdCodice' => '02313821007',
-            'Denominazione' => 'CEDENTE SRL',
-            'RegimeFiscale' => 'RF19',
+            'IdPaese' => $request->input('IdPaese2', 'IT'),
+            'IdCodice' => $request->input('IdCodice2', '00001'),
+            'Denominazione' => $request->input('Denominazione', 'ALPHA SRL'),
+            'RegimeFiscale' => $request->input('RegimeFiscale', 'RF19'),
         ));
         $invoice->setValues('CedentePrestatore/Sede', array(
-            'Indirizzo' => 'VIA UNIVERSO 1',
-            'CAP' => '20100',
-            'Comune' => 'TRENTO',
-            'Provincia' => 'TN',
-            'Nazione' => 'IT'
+            'Indirizzo' => $request->input('Indirizzo', 'VIALE ROMA 543'),
+            'CAP' => $request->input('CAP', '07100'),
+            'Comune' => $request->input('Comune', 'SASSARI'),
+            'Provincia' => $request->input('Provincia', 'SS'),
+            'Nazione' => $request->input('Nazione', 'IT')
         ));
         $invoice->setValues('CessionarioCommittente', array(
-            'CodiceFiscale' => '02313821007',
-            'Anagrafica/Denominazione' => 'AMMINISTRAZIONE',
+            'CodiceFiscale' => $request->input('CodiceFiscale', '09876543210'),
+            'Anagrafica/Denominazione' => $request->input('Denominazione2', 'AMMINISTRAZIONE BETA'),
         ));
         $invoice->setValues('CessionarioCommittente/Sede', array(
-            'Indirizzo' => 'VIALE MONDO 99',
-            'CAP' => '20100',
-            'Comune' => 'TRENTO',
-            'Provincia' => 'TN',
-            'Nazione' => 'IT'
+            'Indirizzo' => $request->input('Indirizzo2', 'VIA TORINO 38-B'),
+            'CAP' => $request->input('CAP2', '00145'),
+            'Comune' => $request->input('Comune2', 'ROMA'),
+            'Provincia' => $request->input('Provincia2', 'RM'),
+            'Nazione' => $request->input('Nazione2', 'IT')
         ));
         $invoice->setValues('DatiGeneraliDocumento', array(
-            'TipoDocumento' => 'TD01',
-            'Divisa' => 'EUR',
-            'Data' => '2018-12-12',
-            'Numero' => 99999
+            'TipoDocumento' => $request->input('TipoDocumento', 'TD01'),
+            'Divisa' => $request->input('Divisa', 'EUR'),
+            'Data' => $request->input('Data', '2017-01-18'),
+            'Numero' => $request->input('Numero', '123'),
+            'Causale' => $request->input('Causale', 'loren ipsum deblore123'),
         ));
         $invoice->setValuesToAll('DatiGenerali', array(
-            'RiferimentoNumeroLinea' => 1,
-            'IdDocumento' => 4455,
-            'NumItem' => 1
+            'RiferimentoNumeroLinea' => $request->input('RiferimentoNumeroLinea', '1'),
+            'IdDocumento' => $request->input('IdDocumento', '66685'),
+            'NumItem' => $request->input('NumItem', '1'),
+            'CodiceCUP' => $request->input('CodiceCUP', '123abc'),
+            'CodiceCIG' => $request->input('CodiceCIG', '456def')
         ));
         $invoice->setValues('DatiTrasporto', array(
             'IdPaese' => 'IT',
@@ -81,28 +84,31 @@ class FatturaController extends Controller
             'DataOraConsegna' => '2017-01-10T16:46:12.000+02:00'
         ));
         $invoice->setValues('DatiBeniServizi', array(
-            'NumeroLinea' => 1,
-            'Descrizione' => 'Description',
-            'Quantita' => '10.00',
-            'PrezzoUnitario' => '5.00',
-            'PrezzoTotale' => '50.00',
-            'DettaglioLinee/AliquotaIVA' => '22.00',
-            'DatiRiepilogo/AliquotaIVA' => '22.00',
-            'ImponibileImporto' => '50.00',
-            'Imposta' => '11.00',
-            'EsigibilitaIVA' => 'D'
+            'NumeroLinea' => $request->input('NumeroLinea'),
+            'Descrizione' => $request->input('Descrizione'),
+            'Quantita' => $request->input('Quantita'),
+            'PrezzoTotale' => $request->input('PrezzoTotale'),
+            'DettaglioLinee/AliquotaIVA' => $request->input('AliquotaIVA'),
+            'DatiRiepilogo/AliquotaIVA' => $request->input('AliquotaIVA2'),
+            'ImponibileImporto' => $request->input('ImponibileImporto'),
+            'Imposta' => $request->input('Imposta'),
+            'EsigibilitaIVA' => $request->input('EsigibilitaIVA')
         ));
         $invoice->setValues('DatiPagamento', array(
-            'CondizioniPagamento' => 'TP01',
-            'ModalitaPagamento' => 'MP01',
-            'DataScadenzaPagamento' => '2018-12-31',
-            'ImportoPagamento' => '61.00'
+            'CondizioniPagamento' => $request->input('CondizioniPagamento'),
+            'ModalitaPagamento' => $request->input('ModalitaPagamento'),
+            'DataScadenzaPagamento' => $request->input('DataScadenzaPagamento'),
+            'ImportoPagamento' => $request->input('ImportoPagamento')
         ));
 
         $invoice->setFilename($filename);
         $invoice->setPrefixPath($prefixPath)->save();
 
         return view("fattura_menu")->with('filename',$filename);
+
+        //$filename = Storage::path('public/' . $filename);
+        //return Storage::download($filename);
+
     }
     //
     public function  download($filename)
@@ -111,5 +117,7 @@ class FatturaController extends Controller
 
         return (new Response($file, 200))
             ->header('Content-Type', 'application/xml');
+        //$path = Storage::path('public/' . $filename);
+        //return Storage::download($path);
     }
 }
