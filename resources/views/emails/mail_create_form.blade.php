@@ -32,7 +32,7 @@
             <hr>
             <!--  INPUT mailMessage -->
             <label for="mailMessage" style="font-weight:bold"> Message: </label>
-            <textarea  rows="10" cols="50" id="mailMessage" type="text" name="mailMessage" onKeyPress placeholder=" Type your mail message body here" class="@error('mailMessage') is-invalid @enderror">{{ old('mailMessage') }}</textarea>
+            <textarea rows="10" cols="50" id="mailMessage" type="text" name="mailMessage" onKeyPress placeholder=" Type your mail message body here" class="@error('mailMessage') is-invalid @enderror">{{ old('mailMessage') }}</textarea>
             @error('mailMessage')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror

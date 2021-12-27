@@ -190,7 +190,7 @@
                     </br>
                     <!--  INPUT Causale -->
                     <label for="Causale"> Causale: </label>
-                    <textarea id="Causale" type="text" name="Causale" onKeyPress placeholder="LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS" class="@error('Causale') is-invalid @enderror">{{ old('Causale',$fattura->Causale) }}</textarea>
+                    <textarea  rows="5" cols="50" id="Causale" type="text" name="Causale" onKeyPress placeholder="LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS" class="@error('Causale') is-invalid @enderror">{{ old('Causale',$fattura->Causale) }}</textarea>
                     @error('Causale')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

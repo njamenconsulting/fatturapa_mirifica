@@ -122,7 +122,7 @@ legend {
   margin-bottom: .5rem;
   font-weight: 600; }
 fieldset {
-  margin: 1px;
+  margin: 1px 3px 1px 5px;
   padding: 1px;
   border: 1px solid}
 /* Spacing
