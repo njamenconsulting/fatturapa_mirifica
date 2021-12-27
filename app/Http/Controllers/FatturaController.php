@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Fattura;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 use \Taocomp\Einvoicing\FatturaElettronica;
 
@@ -114,10 +115,9 @@ class FatturaController extends Controller
     {
         $file = Storage::disk('public')->get($filename);
 
-        //return (new Response($file, 200))
-        //    ->header('Content-Type', 'application/xml');
+        return (new Response($file, 200))
+            ->header('Content-Type', 'application/xml');
         //$path = Storage::path('public/' . $filename);
         //return Storage::download($path);
-        return response()->download($file);
     }
 }

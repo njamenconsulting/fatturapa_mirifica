@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FatturaController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('fattura/create', [FatturaController::class, 'create'])->name('fattur
 Route::get('fattura/edit', [FatturaController::class, 'edit'])->name('fattura-edit');
 Route::post('fattura', [FatturaController::class, 'store'])->name('fattura-store');
 Route::get('fattura/download/{filename}', [FatturaController::class, 'download']);
+Route::get('fattura/mail/{filename}', [MailController::class, 'sendEmail'])->name('fattura-sendmail');
