@@ -11,14 +11,14 @@
             </br>
             <!--  INPUT mailTo -->
             <label for="mailTo">To: </label>
-            <input size="50%" id="mailTo" type="text" name="mailTo" value="{{ old('mailTo') }}" placeholder=" destinator@domain.com" class="@error('mailTo') is-invalid @enderror">
+            <input size="50%" id="mailTo" type="text" name="mailTo" value="{{ old('mailTo') }}" placeholder=" recipient@customdomain.com" class="@error('mailTo') is-invalid @enderror">
             @error('mailTo')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
             </br>
             <!--  INPUT mailFrom -->
             <label for="mailFrom"> From: </label>
-            <input size="50%" id="mailFrom" type="text" name="mailFrom" value="{{ old('mailFrom') }}" placeholder="sender@domain.com" class="@error('mailFrom') is-invalid @enderror">
+            <input disabled size="50%" id="mailFrom" type="text" name="mailFrom" value="{{ old('mailFrom') }}" placeholder="devmainkam@gmail.com" class="@error('mailFrom') is-invalid @enderror">
             @error('mailFrom')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
