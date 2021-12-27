@@ -8,15 +8,21 @@ use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public function sendEmail($attachfile)
+    public function writeEmail($filename)
     {
-
+        return view('emails/mail_create_form')->with('filename',$filename);
+    }
+    public function sendEmail(Request $request)
+    {
+       $recipientAddress = $request->input('mailTo');
+       $senderAddress=$request->input('mailFrom');
         $details = [
-            'title'=> 'XML invoice generated',
-            'body'=>'Hello ! download in your XML format invoice in file attachment',
-            'filename'=> $attachfile
+            'subject'=>$request->input('mailSubject'),
+            'title'=> $request->input('mailTitle'),
+            'body'=>$request->input('mailMessage'),
+            'filename'=> $request->input('filename'),
         ];
-        Mail::to("njamenyves@gmail.com")->send(new FatturaMail($details));
+        Mail::to($recipientAddress)->send(new FatturaMail($details));
 
         return view('emails/fattura_send_success');
     }

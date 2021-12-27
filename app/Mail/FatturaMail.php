@@ -34,7 +34,7 @@ class FatturaMail extends Mailable
 
         $file = Storage::disk('public')->get($this->details['filename']);
 
-        return $this->subject('Italian e-invoice and notice XML formats')
+        return $this->subject($this->details['subject'])
                     ->view('emails.fattura_mail')
                     ->attachData($file, $this->details['filename'], ['mime' => 'application/xml']);
     }

@@ -20,4 +20,5 @@ Route::get('fattura/create', [FatturaController::class, 'create'])->name('fattur
 Route::get('fattura/edit', [FatturaController::class, 'edit'])->name('fattura-edit');
 Route::post('fattura', [FatturaController::class, 'store'])->name('fattura-store');
 Route::get('fattura/download/{filename}', [FatturaController::class, 'download']);
-Route::get('fattura/mail/{filename}', [MailController::class, 'sendEmail'])->name('fattura-sendmail');
+Route::get('fattura/mail/{filename}', [MailController::class, 'writeEmail']);
+Route::post('fattura/mail', [MailController::class, 'sendEmail'])->name('fattura-sendmail');
