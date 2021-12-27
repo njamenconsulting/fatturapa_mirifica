@@ -9,21 +9,24 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Styles  -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
+
 
 </head>
 <body>
-    <header>
-        <div id="logo">
-            <img src="{{ asset('img/mirifica.png') }}" alt="Logo de Mirifica" width="112" height="28">
-        </div>
+    <header class="container">
+    <div class="row">
+            <div class="two columns">
+                <img src="{{ asset('img/mirifica.png') }}" alt="Logo de Mirifica" width="112" height="28">
+            </div>
 
-        <div class="nav">
-            <a class="active" href="{{ url('/') }}">Home</a>
-            <a href="{{ route('fattura-create') }}">Empty form</a>
-            <a href="{{ route('fattura-edit') }}">Pre-filled form</a>
-            <a href="#about">About</a>
+            <nav class="ten columns" >
+                <a class="active" href="{{ url('/') }}">Home</a>
+                <a href="{{ route('fattura-create') }}">Empty form</a>
+                <a href="{{ route('fattura-edit') }}">Pre-filled form</a>
+                <a href="#about">About</a>
+            </nav>
         </div>
     </header>
 
@@ -31,7 +34,7 @@
         @yield('content')
     </div>
 
-    <footer>
+    <footer  class="container">
         <p> Copyrigth @2021 </p>
     </footer>
 

@@ -11,7 +11,7 @@
                 <fieldset class="IdTrasmittente"><legend>IdTrasmittente</legend><!-- Titre du fieldset -->
                     <!--  INPUT IdPaese -->
                     <label for="IdPaese">IdPaese: </label>
-                    <input id="IdPaese" type="text" name="IdPaese" value="{{ old('IdPaese') }}" placeholder="IT" class="@error('IdPaese') is-invalid @enderror">
+                    <input size="50%" id="IdPaese" type="text" name="IdPaese" value="{{ old('IdPaese') }}" placeholder="IT" class="@error('IdPaese') is-invalid @enderror">
                     @error('IdPaese')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

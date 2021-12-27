@@ -11,28 +11,28 @@
             </br>
             <!--  INPUT mailTo -->
             <label for="mailTo">To: </label>
-            <input id="mailTo" type="text" name="mailTo" value="{{ old('mailTo') }}" placeholder=" destinator@domain.com" class="@error('mailTo') is-invalid @enderror">
+            <input size="50%" id="mailTo" type="text" name="mailTo" value="{{ old('mailTo') }}" placeholder=" destinator@domain.com" class="@error('mailTo') is-invalid @enderror">
             @error('mailTo')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
             </br>
             <!--  INPUT mailFrom -->
             <label for="mailFrom"> From: </label>
-            <input id="mailFrom" type="text" name="mailFrom" value="{{ old('mailFrom') }}" placeholder="sender@domain.com" class="@error('mailFrom') is-invalid @enderror">
+            <input size="50%" id="mailFrom" type="text" name="mailFrom" value="{{ old('mailFrom') }}" placeholder="sender@domain.com" class="@error('mailFrom') is-invalid @enderror">
             @error('mailFrom')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
             </br>
             <!--  INPUT mailSubject -->
             <label for="mailSubject"> Subject: </label>
-            <input id="mailSubject" type="text" name="mailSubject" value="{{ old('mailSubject') }}" placeholder=" Mail object" class="@error('mailSubject') is-invalid @enderror">
+            <input size="50%" id="mailSubject" type="text" name="mailSubject" value="{{ old('mailSubject') }}" placeholder=" Mail object" class="@error('mailSubject') is-invalid @enderror">
             @error('mailSubject')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-            </br>
+            <hr>
             <!--  INPUT mailMessage -->
-            <label for="mailMessage"> Message: </label>
-            <textarea id="mailMessage" type="text" name="mailMessage" onKeyPress placeholder=" Type your mail message body here" class="@error('mailMessage') is-invalid @enderror">{{ old('mailMessage') }}</textarea>
+            <label for="mailMessage" style="font-weight:bold"> Message: </label>
+            <textarea  rows="10" cols="50" id="mailMessage" type="text" name="mailMessage" onKeyPress placeholder=" Type your mail message body here" class="@error('mailMessage') is-invalid @enderror">{{ old('mailMessage') }}</textarea>
             @error('mailMessage')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror

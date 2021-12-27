@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Fattura-electronica'),
+    'name' => env('APP_NAME', 'Fattura-mirifica'),
 
     /*
     |--------------------------------------------------------------------------
