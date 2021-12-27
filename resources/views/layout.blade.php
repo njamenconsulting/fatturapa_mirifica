@@ -18,11 +18,11 @@
     <header class="container">
     <div class="row">
             <div class="two columns">
-                <img src="{{ asset('img/mirifica.png') }}" alt="Logo de Mirifica" width="112" height="28">
+                <img src="{{ asset('img/mirifica.png') }}" alt="Logo de Mirifica" width="150" height="40">
             </div>
 
             <nav class="ten columns" >
-                <a class="active" href="{{ url('/') }}">Home</a>
+                <a  href="{{ url('/') }}">Home</a>
                 <a href="{{ route('fattura-create') }}">Empty form</a>
                 <a href="{{ route('fattura-edit') }}">Pre-filled form</a>
                 <a href="#about">About</a>
