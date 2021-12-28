@@ -13,7 +13,7 @@ To fill out form and seed database with fake data, we use a PHP library named [F
 ## Author
 
 ```python
-import Yves NJAMEN, IT Engineer
+Yves NJAMEN, IT Engineer
 
 # returns phone
 (+237) 697387673
