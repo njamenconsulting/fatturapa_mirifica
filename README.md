@@ -1,4 +1,4 @@
-# Fattura
+# Fattura-mirifica
 
 ## About
 
@@ -9,6 +9,20 @@ This application firstly allows you to generate an invoice in XML format from th
 We have used [Laravel](https://laravel.com/) framework to build this app.
 
 To fill out form and seed database with fake data, we use a PHP library named [Faker](https://github.com/FakerPHP/Faker/).
+
+## Author
+
+```python
+import Yves NJAMEN, IT Engineer
+
+# returns phone
+(+237) 697387673
+
+# returns email:
+njamenconsulting@gmail.com
+
+
+ 
 
 ## License
 
