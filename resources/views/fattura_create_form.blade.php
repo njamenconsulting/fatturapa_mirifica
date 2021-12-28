@@ -1,9 +1,12 @@
 @extends("layout")
 
 @section('content')
-    <h3> Fattura elettronica italiana <strong>in XML</strong> (formato FatturaPA)</h3>
-    <a href=" {{ route('fattura-edit') }} ">Fill form</a>
-    </br></br></br>
+
+    <h3> Generate an invoice in XML format </h3>
+    <p> This form is used to fill in the parameters of the invoice to be generated.
+        It is possible to fill it in automatically by clicking on the 
+        <strong><a href=" {{ route('fattura-edit') }} "> fill out the forms </a></strong>
+    </p>
     <form method="post" action="{{ route('fattura-store') }}"}}>
         @csrf
         <fieldset class="FatturaElettronicaHeader"><legend>FatturaElettronicaHeader</legend>

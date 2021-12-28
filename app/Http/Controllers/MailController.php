@@ -14,16 +14,28 @@ class MailController extends Controller
     }
     public function sendEmail(Request $request)
     {
-       $recipientAddress = $request->input('mailTo');
-       $senderAddress=$request->input('mailFrom');
+        /*
+        $validatedData = $request->validate([
+            'mailTo' => ['bail','required', 'email', 'max:255'],
+            'mailCc' => ['bail','nullable', 'email', 'max:255'],
+            //'mailFrom' => ['bail','required', 'email', 'max:255'],
+            'mailSubject' => ['required', 'unique:posts', 'max:255'],
+            'mailTitle' => ['nullable'],
+            'mailMessage' => ['required'],
+        ]); */
+
+        $recipientAddress = $request->input('mailTo');
+        $ccAddress = $request->input('mailCc');
+        $senderAddress=$request->input('mailFrom');
         $details = [
             'subject'=>$request->input('mailSubject'),
             'title'=> $request->input('mailTitle'),
             'body'=>$request->input('mailMessage'),
-            'filename'=> $request->input('filename'),
+            'filename'=> $request->input('mailAttachment'),
         ];
-        Mail::to($recipientAddress)->send(new FatturaMail($details));
+        Mail::to($recipientAddress)->cc($ccAddress)
+                                   ->send(new FatturaMail($details));
 
-        return view('emails/fattura_send_success');
+        return view('emails/mail_success_message');
     }
 }

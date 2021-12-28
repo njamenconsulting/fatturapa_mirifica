@@ -19,12 +19,12 @@
         <img src="{{ asset('img/mirifica.png') }}" alt="Logo de Mirifica" width="112" height="28">
     </div>
 
-    <div style="padding-left:16px">
+    <div class="row">
         <h3>  <strong> {{ $details['title'] }}</strong></h3>
         <p>{{ $details['body'] }}</p>
-        </br></br>
+        </br>
 
-        <p>Thank you!</p>
+        <p>Best Regards!</p>
 
     </div>
 </body>
