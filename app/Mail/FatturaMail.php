@@ -35,7 +35,7 @@ class FatturaMail extends Mailable
         $file = Storage::disk('public')->get($this->details['filename']);
 
         return $this->subject($this->details['subject'])
-                    ->view('emails.fattura_mail')
+                    ->view('emails.mail_template_content')
                     ->attachData($file, $this->details['filename'], ['mime' => 'application/xml']);
     }
 }

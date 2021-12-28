@@ -28,10 +28,14 @@ class FatturaController extends Controller
     {
         $input = $request->all();
 
+        //on recupère l'id du dernier enregistrement et on incrémente
+
         //Create a custom template invoice to be used later
         $prefixPath = storage_path('app/public');
-        $filename = date("d-m-Y")."-".time().'.xml';
+        $filename = 'IT'.date("dmY")."".time().'.xml';
+
         $invoice = new FatturaElettronica('FPA12');
+
         $invoice->setValue('ProgressivoInvio', 10001);
         $invoice->setValue('CodiceDestinatario', '999999');
 

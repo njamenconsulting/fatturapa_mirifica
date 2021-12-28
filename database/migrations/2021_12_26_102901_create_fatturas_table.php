@@ -40,7 +40,8 @@ class CreateFatturasTable extends Migration
             $table->string('Divisa');
             $table->string('Data');
             $table->string('Numero');
-            $table->string('Causale');
+            //$table->string('Causale');
+            $table->text('Causale');
             $table->string('RiferimentoNumeroLinea');
             $table->string('IdDocumento');
             $table->string('NumItem');
@@ -66,6 +67,7 @@ class CreateFatturasTable extends Migration
             $table->string('ModalitaPagamento');
             $table->string('DataScadenzaPagamento');
             $table->string('ImportoPagamento');
+            $table->string('filename')->nullable();
             $table->timestamps();
         });
     }
