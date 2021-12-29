@@ -7,11 +7,12 @@ This application firstly allows you to generate an invoice in XML format from th
 ## Contributing
 
 To do this project, we have use the tools and libraries developed by others colleagues or company. So we can quote:
+
 1- The framework [Laravel](https://laravel.com/) to build our backend;
 
 2- The PHP library named [Faker](https://github.com/FakerPHP/Faker/) to generate fake data and seed our database who will be used later to fill out form;
 
-3- The PHP package [php-e-invoice-it](https://github.com/taocomp/php-e-invoice-it/), for managing italian e-invoice and notice XML formats.
+3- The PHP package [PHP E-invoice It](https://github.com/taocomp/php-e-invoice-it/), for managing italian e-invoice and notice XML formats.
 
 ## Author
 
