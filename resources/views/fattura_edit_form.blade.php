@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h3> Generate an invoice in XML format </h3>
+    <h3> Generate an invoice in XML format <em> - step1 - </em> </h3>
     <p> This form is used to fill in the parameters of the invoice to be generated.
         It is possible to fill it in automatically by clicking on the 
         <strong><a href=" {{ route('fattura-edit') }} "> fill out the forms </a></strong>

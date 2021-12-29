@@ -108,11 +108,15 @@ class FatturaController extends Controller
         $invoice->setFilename($filename);
         $invoice->setPrefixPath($prefixPath)->save();
 
-        return view("fattura_menu")->with('filename',$filename);
+       // return view("fattura_menu")->with('filename',$filename);
 
-        //$filename = Storage::path('public/' . $filename);
-        //return Storage::download($filename);
+       $invoice = Storage::disk('public')->get($filename);
+       
+       $content_file=(new Response($invoice, 200))
+       ->header('Content-Type', 'application/xml');
 
+       return view('fattura_check_invoice')->with('filename',$filename)
+                                           ->with('content',$content_file);
     }
     //
     public function  download($filename)
