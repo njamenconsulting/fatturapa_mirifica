@@ -10,4 +10,14 @@ class WelcomeController extends Controller
     {
         return view('welcome');
     }
+    //
+    public function about()
+    {
+        return view('about');
+    }
+    //
+    public function help()
+    {
+        return view('help');
+    }
 }

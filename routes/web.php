@@ -18,7 +18,7 @@ use App\Http\Controllers\InvoiceMailController;
 |
 */
 
-Route::get('/', [WelcomeController::class, 'index'])->name('fattura-home');
+Route::get('/', [WelcomeController::class, 'index'])->name('home');
 Route::get('/about', [WelcomeController::class, 'about'])->name('about');
 Route::get('/help', [WelcomeController::class, 'help'])->name('help');
 //
