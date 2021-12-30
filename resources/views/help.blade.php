@@ -1,7 +1,10 @@
 @extends("layout")
 
 @section('content')
-
+    <p> 
+        This application firstly allows you to generate an invoice in XML format from the data filled in a form. 
+        Then send the generated invoice (XML file) by email.
+    </p>
     <h2> A- How to generate an invoice? </h2>
 
     <ol> 
