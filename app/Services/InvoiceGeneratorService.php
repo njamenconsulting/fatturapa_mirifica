@@ -9,7 +9,7 @@ use \Taocomp\Einvoicing\FatturaElettronica;
         {
 
             //Create a custom template invoice to be used later
-            $prefixPath = storage_path('app/public');
+            $prefixPath = storage_path('app/public/');
             $filename = 'IT'.date("dmY")."".time().'.xml';
 
             $invoice = new FatturaElettronica('FPA12');
