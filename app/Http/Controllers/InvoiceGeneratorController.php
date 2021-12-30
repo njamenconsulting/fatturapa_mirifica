@@ -47,7 +47,7 @@ class InvoiceGeneratorController extends Controller
     {
 
         $filename =  base_path('storage\\app\\public\\').''.$filename;
-        dd($filename );
+       
         $headers = array(
             'Content-Type' => 'application/xml', //mime_content_type( $file )
           );
