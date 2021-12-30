@@ -355,7 +355,7 @@
         </fieldset>
         <!--  INPUT SUBMIT BUTTON-->
         <button type="submit" name="submit" value="submit"> Submit </button>
-        <button type="submit" name="reset" value="reset"> Reset </button>
+        <button type="reset" name="reset" value="reset"> Reset </button>
     </form>
 
 @endsection

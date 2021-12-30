@@ -55,7 +55,8 @@
 
         </div>
         <!--  INPUT SUBMIT BUTTON-->
-        <button type="submit" name="submit" value="submit">Send mail</button>
+        <button type="submit" name="submit" value="submit"> Send mail </button>
+        <button type="reset" name="reset" value="reset"> Reset</button>
     </form>
 
 @endsection
