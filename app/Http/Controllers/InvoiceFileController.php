@@ -34,27 +34,15 @@ class InvoiceFileController extends Controller
     public function delete($filename)
     {
       
-        $filename = $dirs = base_path('storage\\app\\public\\').''.$filename;
+        $filename = $dirs = storage_path('app/public/').''.$filename;
         unlink($filename);
 
         return redirect()->route('file-list');
-        //$dirs = base_path('storage\\app\\public');
-
-        //File::cleanDirectory( $dirs);//Delete all file in directory
-
-        //$fs = new \Illuminate\Filesystem\Filesystem;
-        //$fs->cleanDirectory($dirs); 
-
-        //array_map('unlink', glob("caminho/completo/*.JPG"));
-
-        /*The glob will return an array with all possible paths (referring to .JPG files within the given folder).
-        array_map will apply the unlink function to each element of the array.
-        unlink will remove the file corresponding to the path. */
     }
     //
     public function download($filename)
     {
-        $filename = $dirs = base_path('storage\\app\\public\\').''.$filename;
+        $filename = $dirs = storage_path('app/public/').''.$filename;
         $headers = array(
             'Content-Type' => 'application/xml', //mime_content_type( $file )
           );
