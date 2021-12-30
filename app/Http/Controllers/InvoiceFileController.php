@@ -11,8 +11,8 @@ class InvoiceFileController extends Controller
 {
     public function index()
     {
-        $path = base_path('storage\\app\\public\\');
-        dd($path);
+        //$path = base_path('storage\\app\\public\\');
+        $path = '/app/storage\\app`\\public\\';
         //Get all XML file from folder $path
         $xml_files = glob($path . '*.' . 'xml');
         $xml_files_metadata = [];
