@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Storage;
 
-class FatturaMail extends Mailable
+class InvoiceMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -23,6 +23,7 @@ class FatturaMail extends Mailable
     {
         $this->details=$details;
     }
+
 
     /**
      * Build the message.

@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\FatturaMail;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
-class MailController extends Controller
+class InvoiceMailController extends Controller
 {
-    public function writeEmail($filename)
+    public function writing($filename)
     {
         return view('emails/mail_create_form')->with('filename',$filename);
     }
-    public function sendEmail(Request $request)
+    public function sending(Request $request)
     {
         /*
         $validatedData = $request->validate([
@@ -34,7 +32,7 @@ class MailController extends Controller
             'filename'=> $request->input('mailAttachment'),
         ];
         Mail::to($recipientAddress)->cc($ccAddress)
-                                   ->send(new FatturaMail($details));
+                                   ->send(new InvoiceMail($details));
 
         return view('emails/mail_success_message');
     }

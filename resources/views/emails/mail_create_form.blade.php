@@ -1,10 +1,10 @@
 @extends("layout")
 
 @section('content')
-    <h3> Sending the generated invoice as an attachment by email</h3>
+    <h2> Sending the generated invoice as an attachment by email</h2>
 
     <p> Please fill in the following form with the mail parameters;</p>
-    <form method="post" action="{{ route('fattura-sendmail') }}">
+    <form method="post" action="{{ route('sending-mail') }}">
         @csrf
         
         <div class="row">

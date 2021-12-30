@@ -23,9 +23,10 @@
 
             <nav class="ten columns" >
                 <a  href="{{ url('/') }}">Home</a>
-                <a href="{{ route('fattura-create') }}">Empty form</a>
-                <a href="{{ route('fattura-edit') }}">Pre-filled form</a>
-                <a href="#about">About</a>
+                <a href="{{ route('invoice-create') }}"> New Invoice </a>
+                <a href="{{ route('file-list') }}"> See Invoices </a>
+                <a href="{{ route('about') }}"> About </a>
+                <a href="{{ route('help') }}"> Help </a>
             </nav>
         </div>
     </header>
