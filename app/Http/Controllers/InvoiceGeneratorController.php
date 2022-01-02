@@ -7,6 +7,8 @@ use App\Models\Fattura;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Services\InvoiceGeneratorService;// Our custom service
+use App\Repositories\InvoiceRepositoryInterface;
+use Illuminate\Support\Arr;
 
 
 class InvoiceGeneratorController extends Controller
@@ -20,39 +22,59 @@ class InvoiceGeneratorController extends Controller
      */
     public function edit()
     {
-        $id = rand(1, 9);
-        return view('invoices.invoice_edit_form')->with('fattura', Fattura::findOrFail($id));
+        //Generate fake data to fill out the form
+        $data = (new InvoiceGeneratorService()) -> setFakerData();
+       
+        return view('invoices.invoice_edit_form')->with('data', $data);
     }
     /**
      * 
      */
     public function check(Request $request)
     {
-        $input = $request->all();// Retrieve all form input
-        // flash the current input to the session so that it is available during the user's next request to the application
+        
+        $input = $request->except(['_token','submit']);// Retrieve all form input
+
+        if (!$request->filled('filename')) {
+            $input['filename' ]  ='IT'.date("dmY")."".time().'.xml';
+        }
+        
+        session()->put('invoice', $input);
+        
         $request->flash();
-        //xmlInvoiceBuilder($filename)
-        $filename = (new InvoiceGeneratorService()) -> getXmlInvoice($request);
-    
-        $invoice_contents = Storage::disk('public')->get($filename);
-
-        $content_file=(new Response($invoice_contents, 200))->header('Content-Type', 'application/xml');
-
-        return view('invoices.invoice_check')->with('filename',$filename)
-                                            ->with('content',$content_file);
+        //Generate xml content from form input data
+        $xmlContents = (new InvoiceGeneratorService()) -> getXmlInvoice($input);
+        //Return view with xml contents generated
+        return view('invoices.invoice_check')->with('contents',$xmlContents);
 
     }
     //
-    public function  download($filename)
+    public function  download( Request $request,
+                               InvoiceRepositoryInterface $invoiceRepository,
+                               $filename)
     {
+        if (session()->exists('invoice')) {
+            //Retrieve session data
+            $sessionData = session('invoice');
+            //Store into the database
+            $invoiceRepository->store($sessionData);
+            //delete session
+            session()->forget('invoice');
 
-        $filename =  storage_path('app/public/').''.$filename;
+            //Launch downloading
+            $filename =  storage_path('app/public/').''.$filename;
        
-        $headers = array(
-            'Content-Type' => 'application/xml', //mime_content_type( $file )
-          );
-        $name = pathinfo($filename,PATHINFO_FILENAME);
-        return response()->download($filename, $name, $headers);
+            $headers = array(
+                'Content-Type' => 'application/xml', //mime_content_type( $file )
+            );
+            $name = pathinfo($filename,PATHINFO_FILENAME);
+            return response()->download($filename, $name, $headers);
+        }
+        else{
+            echo 'la session not exist';
+        }
+
+
     }
 
 }

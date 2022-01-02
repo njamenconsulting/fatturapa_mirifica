@@ -3,13 +3,13 @@
 @section('content')
     <h2> Sending the generated invoice as an attachment by email</h2>
 
-    <p> Please fill in the following form with the mail parameters;</p>
-    <form method="post" action="{{ route('sending-mail') }}">
+    <p> Please fill in the following form with the mail parameters.</p>
+    <form method="post" action="{{ route('mailSend') }}">
         @csrf
         
         <div class="row">
 
-            <input id="mailAttachment" type="hidden" name="mailAttachment" value="{{ old('filename') ?? $filename }}" placeholder="{{$filename}}" class="@error('filename') is-invalid @enderror">
+            <input id="idAttachment" type="hidden" name="idAttachment" value="{{ old('id') ?? $id }}" placeholder="{{$id}}" class="@error('id') is-invalid @enderror">
             </br>
             <!--  INPUT mailTo -->
             <label for="mailTo">To: </label>
@@ -57,6 +57,8 @@
         <!--  INPUT SUBMIT BUTTON-->
         <button type="submit" name="submit" value="submit"> Send mail </button>
         <button type="reset" name="reset" value="reset"> Reset</button>
+</br>
+        <a href="{{ route('goback') }}"> Go back to form </a>
     </form>
-
+    <hr>
 @endsection

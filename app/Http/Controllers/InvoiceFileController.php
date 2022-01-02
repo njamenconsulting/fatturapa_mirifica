@@ -11,7 +11,6 @@ class InvoiceFileController extends Controller
 {
     public function index()
     {
-        //$path = base_path('storage\\app\\public\\');
         $path = storage_path('app/public/');
         //dd($path);
         //Get all XML file from folder $path
@@ -37,12 +36,12 @@ class InvoiceFileController extends Controller
         $filename = $dirs = storage_path('app/public/').''.$filename;
         unlink($filename);
 
-        return redirect()->route('file-list');
+        return redirect()->route('fileList');
     }
     //
     public function download($filename)
     {
-        $filename = $dirs = storage_path('app/public/').''.$filename;
+        $filename = storage_path('app/public/').''.$filename;
         $headers = array(
             'Content-Type' => 'application/xml', //mime_content_type( $file )
           );

@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\InvoiceFileController;
-use App\Http\Controllers\InvoiceGeneratorController;
 use App\Http\Controllers\InvoiceMailController;
 
 /*
@@ -22,16 +22,21 @@ Route::get('/', [WelcomeController::class, 'index'])->name('home');
 Route::get('/about', [WelcomeController::class, 'about'])->name('about');
 Route::get('/help', [WelcomeController::class, 'help'])->name('help');
 //
-Route::get('invoice/file/list', [InvoiceFileController::class, 'index'])->name('file-list');
-Route::get('invoice/file/delete/{filename}', [InvoiceFileController::class, 'delete'])->name('file-delete');
-Route::get('invoice/file/download/{filename}', [InvoiceFileController::class, 'download'])->name('file-download');
-Route::get('invoice/file/show/{filename}', [InvoiceFileController::class, 'show'])->name('file-show');
-//
-Route::get('invoice/generator/create', [InvoiceGeneratorController::class, 'create'])->name('invoice-create');
-Route::get('invoice/generator/edit', [InvoiceGeneratorController::class, 'edit'])->name('invoice-edit');
-Route::post('invoice/generator/check', [InvoiceGeneratorController::class, 'check'])->name('invoice-check');
-Route::post('invoice/generator/store', [InvoiceGeneratorController::class, 'store'])->name('invoice-store');
-Route::get('invoice/generator/download/{filename}', [InvoiceGeneratorController::class, 'download'])->name('invoice-download');
+Route::get('invoice/create', [InvoiceController::class, 'create'])->name('invoiceCreate');
+Route::get('invoice/edit', [InvoiceController::class, 'edit'])->name('invoiceEdit');
+Route::get('invoice/store', [InvoiceController::class, 'store'])->name('invoiceStore');
+Route::post('invoice/check', [InvoiceController::class, 'check'])->name('invoiceCheck');
+Route::get('invoice/download/{id}', [InvoiceController::class, 'download'])->name('invoiceDownload');
+Route::get('invoice/send/{id}', [InvoiceController::class, 'send'])->name('invoiceSend');
 
-Route::get('invoice/mail/writing/{filename}', [InvoiceMailController::class, 'writing'])->name('writing-mail');
-Route::post('invoice/mail/sending', [InvoiceMailController::class, 'sending'])->name('sending-mail');
+
+//
+Route::get('invoice/file/list', [InvoiceFileController::class, 'index'])->name('fileList');
+Route::get('invoice/file/delete/{id}', [InvoiceFileController::class, 'delete'])->name('fileDelete');
+Route::get('invoice/file/download/{id}', [InvoiceFileController::class, 'download'])->name('fileDownload');
+Route::get('invoice/file/show/{id}', [InvoiceFileController::class, 'show'])->name('fileShow');
+//
+
+Route::get('invoice/mail/create/{id}', [InvoiceMailController::class, 'writing'])->name('mailCreate');
+Route::post('invoice/mail/send', [InvoiceMailController::class, 'sending'])->name('mailSend');
+Route::get('invoice/mail/goback', [InvoiceMailController::class, 'goBacktoForm'])->name('goback');

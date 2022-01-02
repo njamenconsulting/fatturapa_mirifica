@@ -15,6 +15,7 @@
                   font-family: Open sans;
                   font-size: 15px;"> {{$content}} </pre>
     
-    <a href="{{ route('file-list') }}"> Go back</a>   
+    <a href="{{ route('fileList') }}"> Go back</a> 
+    <hr>  
 
 @endsection

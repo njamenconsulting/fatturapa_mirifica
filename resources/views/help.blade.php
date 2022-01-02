@@ -8,7 +8,7 @@
     <h2> A- How to generate an invoice? </h2>
 
     <ol> 
-        <li> First, go to <a href="{{ route('invoice-create')  }}"> New invoice </a> menu item ; </li> 
+        <li> First, go to <a href="{{ route('invoiceCreate')  }}"> New invoice </a> menu item ; </li> 
         <li> After fill out the form with invoice parameters; </li> 
         <li> See the XML format corresponding at filled parameters and ensure that it's correct; </li>
         <ul>
@@ -20,7 +20,7 @@
     <h2> B- How to manage old invoices generated? </h2>
 
     <ol> 
-        <li> First, go to <a href="{{ route('file-list')  }}"> See invoices </a> menu item;  </li> 
+        <li> First, go to <a href="{{ route('fileList')  }}"> See invoices </a> menu item;  </li> 
         <li> choose action that you want to run: </li> 
         <ul>
             <li> Delete; </li>

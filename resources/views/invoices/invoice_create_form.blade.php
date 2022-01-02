@@ -5,10 +5,12 @@
     <h3> Generate an invoice in XML format </h3>
     <p> This form is used to fill in the parameters of the invoice to be generated.
         It is possible to fill it in automatically by clicking on the 
-        <strong><a href=" {{ route('invoice-edit') }} "> fill out the forms </a></strong>
+        <strong><a href=" {{ route('invoiceEdit') }} "> fill out the forms </a></strong>
     </p>
-    <form method="post" action="{{ route('invoice-check') }}"}}>
+    <form method="post" action="{{ route('invoiceCheck') }}"}}>
         @csrf
+        <input size="75%" type="text" name="filename" value="{{ old('filename') }}">
+
         <fieldset class="FatturaElettronicaHeader"><legend>FatturaElettronicaHeader</legend>
             <fieldset class="DatiTrasmissione"><legend>DatiTrasmissione</legend><!-- Titre du fieldset -->
                 <fieldset class="IdTrasmittente"><legend>IdTrasmittente</legend><!-- Titre du fieldset -->
@@ -193,7 +195,7 @@
                     </br>
                     <!--  INPUT Causale -->
                     <label for="Causale"> Causale: </label>
-                    <textarea id="Causale" type="text" name="Causale" value="{{ old('Causale') }}" placeholder="LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS" class="@error('Causale') is-invalid @enderror"></textarea>
+                    <textarea  rows="5" cols="50" id="Causale" type="text" name="Causale" onKeyPress placeholder="LA FATSSSSSSSSSS" class="@error('Causale') is-invalid @enderror"> {{ old('Causale') }}</textarea>
                     @error('Causale')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -284,6 +286,12 @@
                     @error('Quantita')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
+                <!--  INPUT PrezzoUnitario -->
+                <label for="PrezzoUnitario"> PrezzoUnitario: </label>
+                    <input id="PrezzoUnitario" type="text" name="PrezzoUnitario" value="{{ old('PrezzoUnitario') }}" placeholder="1.00" class="@error('PrezzoUnitario') is-invalid @enderror">
+                    @error('PrezzoUnitario')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 <!--  INPUT PrezzoTotale -->
                     <label for="PrezzoTotale"> PrezzoTotale: </label>
                     <input id="PrezzoTotale" type="text" name="PrezzoTotale" value="{{ old('PrezzoTotale') }}" placeholder="1.00" class="@error('PrezzoTotale') is-invalid @enderror">
@@ -354,8 +362,8 @@
             </fieldset>
         </fieldset>
         <!--  INPUT SUBMIT BUTTON-->
-        <button type="submit" name="submit" value="submit"> Submit </button>
-        <button type="reset" name="reset" value="reset"> Reset </button>
+        <button type="submit" name="submit"> Submit </button>
+        <button type="reset" name="reset"> Reset </button>
     </form>
-
+    <hr>
 @endsection

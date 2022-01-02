@@ -30,14 +30,15 @@
                     </td>
                     <td>{{ $item['lastModified'] }}</td>
                     <td>
-                        <a href="{{ route('file-show', $item['filename'] ) }}">Show</a>
-                        <a href="{{  route('file-download', $item['filename'] )  }}">Download</a>
-                        <a href="{{ route('file-delete', $item['filename'] ) }}">Delete</a>
+                        <a href="{{ route('fileShow', $item['filename'] ) }}">Show</a>
+                        <a href="{{  route('fileDownload', $item['filename'] )  }}">Download</a>
+                        <a href="{{ route('fileDelete', $item['filename'] ) }}">Delete</a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    <hr>
     
 
 @endsection

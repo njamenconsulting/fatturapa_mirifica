@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class FatturaSeeder extends Seeder
+class InvoiceSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class FatturaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Invoice::factory(10)->create();
     }
 }

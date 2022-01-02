@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Storage;
+use App\Services\XmlGeneratorService as XmlInvoice;
 
 class InvoiceMail extends Mailable
 {
@@ -32,11 +33,13 @@ class InvoiceMail extends Mailable
      */
     public function build()
     {
-
-        $file = Storage::disk('public')->get($this->details['filename']);
+        //Get invoice parameters who was stored into database
+        $invoiceParameters = $this->details['attachment'];
+        //Generated a XML in memory who will is  attached to the email without writing it to disk
+        $xmlContents = XmlInvoice::XmlGenerator($invoiceParameters);//raw data bytes
 
         return $this->subject($this->details['subject'])
                     ->view('emails.mail_template_content')
-                    ->attachData($file, $this->details['filename'], ['mime' => 'application/xml']);
+                    ->attachData( $xmlContents, $invoiceParameters['filename'], ['mime' => 'application/xml']);
     }
 }
