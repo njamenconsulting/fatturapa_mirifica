@@ -4,7 +4,7 @@
 
     <div class="alert alert-success" role="alert">
 
-        <h3> Email sent successfully! </h3>
+        <h3> Sending mail  successfully! </h3>
         <p class="fst-italic"> Your generated invoice  in XML format has been sent successfully.</p>
     </div>
     <div class="btn-group">

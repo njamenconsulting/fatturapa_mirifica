@@ -11,7 +11,7 @@
     <div class="card-header" style="border-bottom: 2px solid;">
     <h4 class="card-title"> <i class="fas fa-edit"></i>  New mail </h4>
     </div>
-    <div class="card-body">
+    <div class="card-body" style="background-color: var(--bs-light);">
 
         <form method="post" action="{{ route('mailSend') }}">
             @csrf
