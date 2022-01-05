@@ -1,9 +1,9 @@
-@extends("layout")
+@extends("layouts.app")
 
 @section('content')
 
     <h2> Details of invoice {{ $filename}} </h2>
-    <p> Here you can see all of the details of this invoice: </p>
+    <p class="fst-italic"> Here you can see all of the details of this invoice: </p>
 
     <pre style = "border: 1px solid;
                   margin: 5px;

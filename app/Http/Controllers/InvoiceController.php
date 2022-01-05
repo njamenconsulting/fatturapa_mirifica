@@ -38,6 +38,7 @@ class InvoiceController extends Controller
      */
     public function check(Request $request)
     {
+ 
         //Retrieve form inputs 
         $input = $request->except(['_token','submit']);
         //Store form inputs in the session using flash method for keep fill out values when go back

@@ -9,10 +9,13 @@ use File;
 
 class InvoiceFileController extends Controller
 {
+    /**
+     * Display all XML file presents in a specific folder
+     */
     public function index()
     {
         $path = storage_path('app/public/');
-        //dd($path);
+       
         //Get all XML file from folder $path
         $xml_files = glob($path . '*.' . 'xml');
         $xml_files_metadata = [];
@@ -29,7 +32,11 @@ class InvoiceFileController extends Controller
 
         return view('files.file_index', ["data" => $xml_files_metadata]); 
     }
-    //
+    /**
+     * Delete a XML file from a disk
+     * 
+     * @param 
+     */
     public function delete($filename)
     {
       

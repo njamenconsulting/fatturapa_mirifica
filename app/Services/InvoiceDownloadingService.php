@@ -10,16 +10,20 @@ class InvoiceDownloadingService
     {
         //Launch downloading
         $filepath =  storage_path('app/public/').''.$array['filename'];
-        fopen ($filepath, 'w') or die ("Unable to open file");
 
-        $xmlContents=(new XmlInvoice()) -> XmlGenerator($array);         
-        file_put_contents($filepath,$xmlContents);
-        
-        $headers = array(
-            'Content-Type' => 'application/xml', //mime_content_type( $file )
-        );
-        $name = pathinfo($filepath,PATHINFO_FILENAME);
-        
-        return response()->download($filepath, $name, $headers);
+        if ( file_exists($filepath) ) {
+           
+            fopen ($filepath, 'w') or die ("Unable to open file");
+            //touch( $filepath ) ;
+            $xmlContents=(new XmlInvoice()) -> XmlGenerator($array);         
+            file_put_contents($filepath,$xmlContents);
+            
+            $headers = array(
+                'Content-Type' => 'application/xml', //mime_content_type( $file )
+            );
+            $name = pathinfo($filepath,PATHINFO_FILENAME);
+            
+            return response()->download($filepath, $name, $headers);
+        }
     }
 }

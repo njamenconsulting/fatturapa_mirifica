@@ -42,20 +42,53 @@ class XmlGeneratorService
                 'Provincia' => $array['Provincia2'],
                 'Nazione' => $array['Nazione2']
             ));
-            $invoice->setValues('DatiGeneraliDocumento', array(
+            $invoice->setValues('DatiGenerali/DatiGeneraliDocumento', array(
                 'TipoDocumento' => $array['TipoDocumento'],
                 'Divisa' => $array['Divisa'],
                 'Data' => $array['Data'],
                 'Numero' => $array['Numero'],
                 'Causale' => $array['Causale'],
             ));
-            $invoice->setValuesToAll('DatiGenerali', array(
+
+            $invoice->setValues('DatiGenerali/DatiOrdineAcquisto', array(
                 'RiferimentoNumeroLinea' => $array['RiferimentoNumeroLinea'],
                 'IdDocumento' => $array['IdDocumento'],
                 'NumItem' => $array['NumItem'],
                 'CodiceCUP' => $array['CodiceCUP'],
                 'CodiceCIG' => $array['CodiceCIG']
             ));
+
+            $invoice->setValues('DatiGenerali/DatiContratto', array(
+                'RiferimentoNumeroLinea' => $array['RiferimentoNumeroLinea2'],
+                'IdDocumento' => $array['IdDocumento2'],
+                'Data' => $array['Data2'],
+                'NumItem' => $array['NumItem2'],
+                'CodiceCUP' => $array['CodiceCUP2'],
+                'CodiceCIG' => $array['CodiceCIG2']
+            ));
+            $invoice->setValues('DatiGenerali/DatiConvenzione', array(
+                'RiferimentoNumeroLinea' => $array['RiferimentoNumeroLinea3'],
+                'IdDocumento' => $array['IdDocumento3'],
+                'NumItem' => $array['NumItem3'],
+                'CodiceCUP' => $array['CodiceCUP3'],
+                'CodiceCIG' => $array['CodiceCIG3']
+            ));
+
+
+            $invoice->setValues('DatiGenerali/DatiRicezione', array(
+                'RiferimentoNumeroLinea' => $array['RiferimentoNumeroLinea4'],
+                'IdDocumento' => $array['IdDocumento4'],
+                'NumItem' => $array['NumItem4'],
+                'CodiceCUP' => $array['CodiceCUP4'],
+                'CodiceCIG' => $array['CodiceCIG4']
+            ));
+
+            $invoice->setValues('CessionarioCommittente', array(
+                'CodiceFiscale' => $array['CodiceFiscale'],
+                'Anagrafica/Denominazione' => $array['Denominazione2'],
+            ));
+
+
             $invoice->setValues('DatiTrasporto', array(
                 'IdPaese' => $array['IdPaese3'],
                 'IdCodice' => $array['IdCodice3'],

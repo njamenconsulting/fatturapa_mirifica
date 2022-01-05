@@ -46,6 +46,27 @@ use Faker\Factory as Faker;
                         'CodiceCUP'=>$faker->regexify('[0-9]{3}[a-z]{3}'),
                         'CodiceCIG'=>$faker->regexify('[a-z]{3}[0-9]{3}'),
             
+
+                        'RiferimentoNumeroLinea2' => $faker->randomDigitNotNull(),
+                        'IdDocumento2' => $faker->regexify('[0-9]{5}'),
+                        'Data2' => $faker->date('Y-m-d'),
+                        'NumItem2' => $faker->randomDigitNotNull(),
+                        'CodiceCUP2' => $faker->regexify('[0-9]{3}[a-z]{3}'),
+                        'CodiceCIG2' => $faker->regexify('[a-z]{3}[0-9]{3}'),                       
+
+                        'RiferimentoNumeroLinea3' => $faker->randomDigitNotNull(),
+                        'IdDocumento3' => $faker->regexify('[0-9]{5}'),
+                        'NumItem3' => $faker->randomDigitNotNull(),
+                        'CodiceCUP3' => $faker->regexify('[0-9]{3}[a-z]{3}'),
+                        'CodiceCIG3' => $faker->regexify('[a-z]{3}[0-9]{3}'),
+
+                        'RiferimentoNumeroLinea4' => $faker->randomDigitNotNull(),
+                        'IdDocumento4' => $faker->regexify('[0-9]{5}'),
+                        'NumItem4' => $faker->randomDigitNotNull(),
+                        'CodiceCUP4' => $faker->regexify('[0-9]{3}[a-z]{3}'),
+                        'CodiceCIG4' => $faker->regexify('[a-z]{3}[0-9]{3}'),
+
+
                         'IdPaese3'=>$faker->stateAbbr(),
                         'IdCodice3'=>$faker->randomNumber($nbDigits = 9, $strict = true),
                         'Denominazione3'=>$faker->company(),

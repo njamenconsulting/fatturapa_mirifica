@@ -1,9 +1,9 @@
-@extends("layout")
+@extends("layouts.app")
 
 @section('content')
 
-    <h2> Generate an invoice in XML format <em> - step 2 - </em></h2>
-    <p> Please check if your invoice is correct : </p>
+    <h2> Generate an invoice in XML format - STEP 2 - </h2>
+    <p class="fst-italic">  Please check if your invoice is correct : </p>
     <pre style = "border: 1px solid;
                   margin: 5px;
                   padding: 10px;
@@ -15,10 +15,11 @@
                   font-size: 15px;"> {{$contents}} </pre>
      <hr>   
     <ul>
-        <li> If it isn't correct, <a href="{{ route('invoiceCreate') }}">go back to form</a></li>
+        <li> If it isn't correct, 
+            <a class="btn btn-warning" role="button" href="{{ route('invoiceCreate') }}"> <i class="fas fa-hand-point-left"></i> Go back to form </a></li>
         </br>
         <li> If it's correct 
-            <a href="{{ route('invoiceStore') }}">Store generated Invoice into database</a>
+            <a  class="btn btn-primary" role="button" href="{{ route('invoiceStore') }}"> <i class="fas fa-database"></i> Store generated Invoice into database </a>
        </li>
         </br>
     </ul>

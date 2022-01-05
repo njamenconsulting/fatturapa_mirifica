@@ -1,9 +1,9 @@
-@extends("layout")
+@extends("layouts.app")
 
 @section('content')
 
     <h2> List of generated invoices </h2>
-    <p> This is all of invoice who have been generated. You can perfom the action in choosing one link : </p>
+    <p class="fst-italic"> This is all of invoice who have been generated. You can perfom the action in choosing one link : </p>
 
     <table class="u-full-width">
         <thead>
@@ -31,7 +31,7 @@
                     <td>{{ $item['lastModified'] }}</td>
                     <td>
                         <a href="{{ route('fileShow', $item['filename'] ) }}">Show</a>
-                        <a href="{{  route('fileDownload', $item['filename'] )  }}">Download</a>
+                        <a href="{{  route('fileDownload', $item['filename'] )}}">Download</a>
                         <a href="{{ route('fileDelete', $item['filename'] ) }}">Delete</a>
                     </td>
                 </tr>

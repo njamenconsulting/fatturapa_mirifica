@@ -1,15 +1,15 @@
-@extends("layout")
+@extends("layouts.app")
 
 @section('content')
 
-    <div class="row">
+    <div class="alert alert-success" role="alert">
 
-        <h2> Email sent successfully! </h2>
-        <p> Your generated invoice  in XML format has been sent successfully.</p>
-        <p> <a href="{{ route('invoiceDownload', ['id' => $id ]) }}"> Download generated invoice in your local disk</a></p>
-        <p> <a href="{{ url('/') }}">Go back to Home</a></p>
-        
+        <h3> Email sent successfully! </h3>
+        <p class="fst-italic"> Your generated invoice  in XML format has been sent successfully.</p>
     </div>
-    <hr>
-
+    <div class="btn-group">
+        <a href="{{ route('mailCreate', ['id' => $id ]) }}" class="btn btn-primary">  <i class="fas fa-download"></i> Download generated invoice</a>
+        <a href="{{ url('/') }}" class="btn btn-secondary">  <i class="fas fa-home"></i> Go back to Home</a>
+    </div>
+ 
 @endsection
