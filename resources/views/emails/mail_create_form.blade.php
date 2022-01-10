@@ -4,7 +4,7 @@
 
     <h3> Sending the generated invoice as an attachment by email</h3>
 
-    <p class="fst-italic"> Please fill in the following form with the mail parameters.</p>
+    <p class="fst-italic text-primary"> Please fill in the following form with the mail parameters.</p>
 
 
 <div class="card border-dark mb-3" style="max-width: 50rem;border:2px solid">

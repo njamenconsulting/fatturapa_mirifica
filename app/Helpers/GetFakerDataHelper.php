@@ -78,6 +78,7 @@ use Faker\Factory as Faker;
                         'PrezzoUnitario'=>$faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 100),
                         'PrezzoTotale'=>$faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 100),
                         'AliquotaIVA'=>$faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 100),
+                        
                         'AliquotaIVA2'=>$faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 100),
                         'ImponibileImporto'=>$faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 100),
                         'Imposta'=>$faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 100),

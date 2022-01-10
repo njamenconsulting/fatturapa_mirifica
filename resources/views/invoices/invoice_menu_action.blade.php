@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success mt-2" role="alert">
         
         <h3>  Congratulation !, Your invoice in XML format has been stored into database successfully</h3>
         Now you can 
@@ -13,8 +13,8 @@
 
     </div>
     <div class="btn-group">
-            <a href="{{ route('mailCreate', ['id' => $id ]) }}" class="btn btn-primary">  <i class="fas fa-envelope"></i> Sending </a>
-            <a href="{{ route('invoiceDownload', ['id' => $id ]) }}" class="btn btn-secondary">  <i class="fas fa-download"></i> Download</a>
+        <a href="{{ route('mailCreate', ['id' => $id ]) }}" class="btn btn-primary">  <i class="fas fa-envelope"></i> Sending </a>
+        <a href="{{ route('invoiceDownload', ['id' => $id ]) }}" class="btn btn-secondary">  <i class="fas fa-download"></i> Download</a>
     </div>
 
 @endsection

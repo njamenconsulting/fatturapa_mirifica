@@ -3,7 +3,7 @@
 @section('content')
 
     <h2> List of generated invoices </h2>
-    <p class="fst-italic"> This is all of invoice who have been generated. You can perfom the action in choosing one link : </p>
+    <p class="fst-italic text-primary"> This is all of invoice who have been generated. You can perfom the action in choosing one link : </p>
 
     <table class="u-full-width">
         <thead>

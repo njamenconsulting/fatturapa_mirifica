@@ -14,4 +14,9 @@ class Invoice extends Model
      * @var array
      */
     protected $guarded = [];
+    //
+    public function dettagliolinees()
+    {
+       return $this->hasMany(Dettagliolinee::class);
+    }
 }

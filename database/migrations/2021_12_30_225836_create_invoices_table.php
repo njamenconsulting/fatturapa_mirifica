@@ -74,12 +74,6 @@ class CreateInvoicesTable extends Migration
             $table->string('Denominazione3')->nullable();
             $table->string('DataOraConsegna')->nullable();
 
-            $table->string('NumeroLinea')->nullable();
-            $table->text('Descrizione')->nullable();
-            $table->string('Quantita')->nullable();
-            $table->string('PrezzoUnitario')->nullable();
-            $table->string('PrezzoTotale')->nullable();
-            $table->string('AliquotaIVA')->nullable();
             $table->string('AliquotaIVA2')->nullable();
             $table->string('ImponibileImporto')->nullable();
             $table->string('Imposta')->nullable();

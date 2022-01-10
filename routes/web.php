@@ -24,7 +24,7 @@ Route::get('/help', [WelcomeController::class, 'help'])->name('help');
 //
 Route::get('invoice/create', [InvoiceController::class, 'create'])->name('invoiceCreate');
 Route::get('invoice/edit', [InvoiceController::class, 'edit'])->name('invoiceEdit');
-Route::get('invoice/store', [InvoiceController::class, 'store'])->name('invoiceStore');
+Route::post('invoice/store', [InvoiceController::class, 'store'])->name('invoiceStore');
 Route::post('invoice/check', [InvoiceController::class, 'check'])->name('invoiceCheck');
 Route::get('invoice/download/{id}', [InvoiceController::class, 'download'])->name('invoiceDownload');
 Route::get('invoice/send/{id}', [InvoiceController::class, 'send'])->name('invoiceSend');
@@ -39,4 +39,3 @@ Route::get('invoice/file/show/{id}', [InvoiceFileController::class, 'show'])->na
 
 Route::get('invoice/mail/create/{id}', [InvoiceMailController::class, 'writing'])->name('mailCreate');
 Route::post('invoice/mail/send', [InvoiceMailController::class, 'sending'])->name('mailSend');
-Route::get('invoice/mail/goback', [InvoiceMailController::class, 'goBacktoForm'])->name('goback');

@@ -2,13 +2,13 @@
 
 @section('content')
 <h3> Generate an invoice in XML format </h3>
-<p class="fst-italic"> This form is used to fill in the parameters of the invoice to be generated.
+<p class="fst-italic text-primary"> This form is used to fill in the parameters of the invoice to be generated.
         It is possible to fill it in automatically by clicking on the 
         <a class="btn btn-primary" href=" {{ route('invoiceEdit') }} " role="button">fill out the forms</a>
     </p>
 
 
-    <form method="post" action="{{ route('invoiceCheck') }}"}}>
+    <form name = "formInvoice" id="formInvoice" method="post" action="{{ route('invoiceCheck') }}"}}>
         @csrf
         <input  type="hidden" name="filename" value="{{ old('filename') }}">
 
@@ -520,13 +520,24 @@
                     @enderror
                 </fieldset>
             </fieldset>
-            <fieldset><legend>DatiBeniServizi</legend>
-                <fieldset><legend>DettaglioLinee</legend>
+
+
+
+<!--  ///////////////////////////////////////////////////////////// -->
+<fieldset class='DatiBeniServizi'>  
+                <legend>DatiBeniServizi
+                <!--  Button to add and remove DettaglioLinee -->
+                    <button id="addDettaglioLinee1" type="button" class="btn btn-secondary btn-sm">  <i class="fas fa-plus-circle"></i>  </button>
+                    <button id="delDettaglioLinee1" type="button" class="btn btn-warning btn-sm">  <i class="fas fa-minus-circle"></i>  </button>        
+                </legend>
+
+                @for ($i = 1; $i < 4; $i++)
+                <fieldset class='DettaglioLinee'><legend> DettaglioLinee {{ $i }} </legend>
                     <div class="row g-1">
                         <div class="col">
                             <!--  INPUT NumeroLinea -->
                             <label for="NumeroLinea"> NumeroLinea: </label>
-                            <input id="NumeroLinea" type="text" name="NumeroLinea" value="{{ old('NumeroLinea') }}" placeholder="1" class="form-control @error('NumeroLinea') is-invalid @enderror">
+                            <input id="NumeroLinea" type="text" name="NumeroLinea[]" value="{{ old('NumeroLinea[$i]') }}" placeholder="1" class="form-control @error('NumeroLinea') is-invalid @enderror">
                             @error('NumeroLinea')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -534,7 +545,7 @@
                         <div class="col">
                         <!--  INPUT Descrizione -->
                             <label for="Descrizione"> Descrizione: </label>
-                            <input id="Descrizione" type="text" name="Descrizione" value="{{ old('Descrizione') }}" placeholder="DESCRIZIONE DELLA FORNITURA" class="form-control @error('Descrizione') is-invalid @enderror">
+                            <input id="Descrizione" type="text" name="Descrizione[]" value="{{ old('Descrizione[$i]') }}" placeholder="DESCRIZIONE DELLA FORNITURA" class="form-control @error('Descrizione') is-invalid @enderror">
                             @error('Descrizione')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -544,7 +555,7 @@
                         <div class="col">
                         <!--  INPUT Quantita -->
                             <label for="Quantita"> Quantita: </label>
-                            <input id="Quantita" type="text" name="Quantita" value="{{ old('Quantita') }}" placeholder="5.00" class="form-control @error('Quantita') is-invalid @enderror">
+                            <input id="Quantita" type="text" name="Quantita[]" value="{{ old('Quantita[$i]') }}" placeholder="5.00" class="form-control @error('Quantita') is-invalid @enderror">
                             @error('Quantita')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -552,7 +563,7 @@
                         <div class="col">
                             <!--  INPUT PrezzoUnitario -->
                             <label for="PrezzoUnitario"> PrezzoUnitario: </label>
-                            <input id="PrezzoUnitario" type="text" name="PrezzoUnitario" value="{{ old('PrezzoUnitario') }}" placeholder="1.00" class="form-control @error('PrezzoUnitario') is-invalid @enderror">
+                            <input id="PrezzoUnitario" type="text" name="PrezzoUnitario[]" value="{{ old('PrezzoUnitario[$i]') }}" placeholder="1.00" class="form-control @error('PrezzoUnitario') is-invalid @enderror">
                             @error('PrezzoUnitario')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -562,7 +573,7 @@
                         <div class="col">
                             <!--  INPUT PrezzoTotale -->
                             <label for="PrezzoTotale"> PrezzoTotale: </label>
-                            <input id="PrezzoTotale" type="text" name="PrezzoTotale" value="{{ old('PrezzoTotale') }}" placeholder="1.00" class="form-control @error('PrezzoTotale') is-invalid @enderror">
+                            <input id="PrezzoTotale" type="text" name="PrezzoTotale[]" value="{{ old('PrezzoTotale[$i]') }}" placeholder="1.00" class="form-control @error('PrezzoTotale') is-invalid @enderror">
                             @error('PrezzoTotale')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -570,13 +581,14 @@
                         <div class="col">
                             <!--  INPUT AliquotaIVA -->
                             <label for="AliquotaIVA"> AliquotaIVA: </label>
-                            <input id="AliquotaIVA" type="text" name="AliquotaIVA" value="{{ old('AliquotaIVA') }}" placeholder="22.00" class="form-control @error('AliquotaIVA') is-invalid @enderror">
+                            <input id="AliquotaIVA" type="text" name="AliquotaIVA[]" value="{{ old('AliquotaIVA[$i]') }}" placeholder="22.00" class="form-control @error('AliquotaIVA') is-invalid @enderror">
                             @error('AliquotaIVA')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
                 </fieldset>
+                @endfor
                 <fieldset><legend>DatiRiepilogo</legend>
                     <div class="row g-1">
                         <div class="col">
@@ -656,11 +668,48 @@
             </fieldset>
         </fieldset>
 
-
         <!--  INPUT SUBMIT BUTTON-->
-        <button type="submit" name="submit" class="btn btn-primary">Submit </button>
+        <button type="submit" name="submit" class="btn btn-primary"> <i class="fas fa-paper-plane"></i>Submit </button>
   
-        <button type="reset" name="reset"  class="btn btn-warning"> Reset </button>
+        <button type="reset" name="reset"  class="btn btn-warning">  <i class="fas fa-undo"></i>  Reset </button>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#checkInvoice">
+        See Invoice
+        </button>
+
     </form>
 
+<!-- Modal -->
+<div class="modal fade" id="checkInvoice" tabindex="-1" aria-labelledby="checkInvoiceLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="checkInvoiceLabel"> Generated invoice</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <p class="fst-italic text-primary">  Please check if your invoice is correct : </p>
+       <pre id="xmlcontent" style = "border: 1px solid;
+                  margin: 5px;
+                  padding: 10px;
+                  overflow-x: auto;
+                  white-space: pre-wrap;
+                  word-wrap: break-word;
+                  background-color: rgb(226, 234, 241);
+                  font-family: Open sans;
+                  font-size: 15px;">      
+        </pre>
+     
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 @endsection
+@push('scripts')
+<script src="{{ asset('js/addDettagliolinee.js') }}"></script>
+<script src="{{ asset('js/invoiceToModal.js') }}"></script>
+@endpush

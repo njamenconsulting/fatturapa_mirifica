@@ -6,5 +6,5 @@ use App\Models\Invoice;
 interface InvoiceRepositoryInterface
 {
     public function store($data);
-    public function get($id);
+    public function getInvoice($id);
 }

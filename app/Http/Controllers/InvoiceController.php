@@ -19,20 +19,21 @@ class InvoiceController extends Controller
      */
     public function create()
     {
+       // dd(old());
         return view('invoices.invoice_create_form');
     }
     /**
      * Show view with filled out form to create new invoice
      */
     public function edit()
-    {
+    {   
         //Generate fake data to fill out the form
-        $data = GetFakerDataHelper::getFakerData();
+       $data = GetFakerDataHelper::getFakerData();
        
-        return view('invoices.invoice_edit_form')->with('data', $data);
+       return view('invoices.invoice_edit_form')->with('data', $data);
     }
     /**
-     * Show filled out data form in XML format 
+     * Show generated XML contents from filled out data form 
      * 
      * @param \Illuminate\Http\Request $request
      */
@@ -43,34 +44,33 @@ class InvoiceController extends Controller
         $input = $request->except(['_token','submit']);
         //Store form inputs in the session using flash method for keep fill out values when go back
         $request->flash();
+      
         session()->put('invoice', $input);
         
         //Generate xml content from form input data using the setter
         $this->setXmlcontents($input);
-        $xmlContents = $this->getXmlcontents();
-        //Return view with xml contents generated
-        return view('invoices.invoice_check')->with('contents',$xmlContents);
+        $xmlContents = $this->getXmlcontents();     
+         
+        header("Content-Type: text/xml ; charset=utf-8");
+        echo $xmlContents;
+     
     }
     /**
      * Store a newly created invoice into database
      * 
      * @param App\Repositories\InvoiceRepositoryInterface $invoiceRepository
      */
-    public function store(IRepository $invoiceRepository)
+    public function store(Request $request, IRepository $invoiceRepository)
     {
-        if (session()->exists('invoice')) {
+        //Retrieve form data
+        $inputForm = $request->except(['_token','submit']);
+        
+        if ($inputForm) {
 
-            //Retrieve session data
-            $sessionData = session('invoice');
-            $filename ='IT'.date("dmY")."".time().'.xml';
-            $sessionData['filename' ] = $filename;
-
+            //Generating of filename where XML contents will be loaded
+            $inputForm['filename'] = 'IT'.date("dmY")."".time().'.xml';
             //Store into the database and get inserted model instance who is returned
-            $insertedInvoiceInstance = $invoiceRepository->store($sessionData);
-            $id = $insertedInvoiceInstance['id'];
-
-            //Delete session
-            session()->forget('invoice');
+            $id = $invoiceRepository->store($inputForm);
 
             return view('invoices.invoice_menu_action')->with('id',$id);
         }
@@ -83,7 +83,7 @@ class InvoiceController extends Controller
     {  
         if ($id) {
             //Retrieve data from database
-            $data = $invoiceRepository->get($id);
+            $data = $invoiceRepository->getInvoice($id);
             //IDownload::downloadInvoice($sessionData);
             $filepath =  storage_path('app/public/').''.$data['filename'];
             //Create file on disk

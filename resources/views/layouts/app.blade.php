@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Yves NJAMEN">
 
     <title>{{ config('app.name', 'Fattura electonica') }}</title>
     <!-- Favicon -->
@@ -53,7 +54,7 @@
         </nav>
     </header>
     <!-- Begin page content -->
-    <main class="container m-2 p-3">   
+    <main class="container  mx-auto px-auto">   
        
             @yield('content')
 
@@ -66,5 +67,6 @@
     </main>
 
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    @stack('scripts')
 </body>
 </html>

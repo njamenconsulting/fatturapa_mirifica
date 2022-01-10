@@ -35,10 +35,10 @@ class InvoiceMailController extends Controller
             'mailTitle' => ['nullable'],
             'mailMessage' => ['required'],
         ]); */
-        
+        $id = $request->input('idAttachment');
         //Retrieve data from database
-        $invoice = $invoiceRepository->get($request->input('idAttachment'));
- 
+        $invoice = $invoiceRepository->getInvoice($id);
+     
         $recipientAddress = $request->input('mailTo');
         $ccAddress = $request->input('mailCc');
         $senderAddress=$request->input('mailFrom');
@@ -53,13 +53,5 @@ class InvoiceMailController extends Controller
                                    ->send(new InvoiceMail($details));
 
         return view('emails/mail_success_message',['id'=>$invoice['id']] );
-    }
-    //
-    public function goBacktoForm()
-    {
-        //Retrieve session data
-        $sessionData = session('invoice');
-        // Go to view to create form with old filled data
-        return view('invoices.invoice_edit_form')->with('data', $sessionData);
     }
 }

@@ -3,7 +3,7 @@
 @section('content')
 
     <h2> Generate an invoice in XML format - STEP 2 - </h2>
-    <p class="fst-italic">  Please check if your invoice is correct : </p>
+    <p class="fst-italic text-primary">  Please check if your invoice is correct : </p>
     <pre style = "border: 1px solid;
                   margin: 5px;
                   padding: 10px;
