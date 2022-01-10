@@ -1,13 +1,15 @@
 
 var myModal = document.getElementById('checkInvoice')
-var myInput = document.getElementById('myInput')
+
 let form = document.querySelector('#formInvoice');
 
 myModal.addEventListener('show.bs.modal', function (event) {
  
     //let url = myform.getAttribute('action');
     //let url = document.querySelector('form').action;
-    let url = "http://www.fattura-elettronica.localdomain/invoice/check";
+   // let url = "http://www.fattura-elettronica.localdomain/invoice/check";
+    let url = "../invoice/check"
+
     /** Retrieve all Array input */
     let NumeroLinea = document.getElementsByName('NumeroLinea[]');
     let Descrizione = document.getElementsByName('Descrizione[]');

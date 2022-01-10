@@ -704,6 +704,6 @@
 @endsection
 @push('scripts')
 <script src="{{ asset('js/addDettagliolinee.js') }}"></script>
-<script src="{{ asset('js/checkInvoice2.js') }}"></script>
+
 <script src="{{ asset('js/invoiceToModal.js') }}"></script>
 @endpush
