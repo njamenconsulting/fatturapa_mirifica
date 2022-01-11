@@ -38,7 +38,7 @@
                     <div class="col">
                         <!--  INPUT ProgressivoInvio -->
                         <label for="ProgressivoInvio"> ProgressivoInvio: </label>
-                        <input id="ProgressivoInvio" type="text" name="ProgressivoInvio" value="{{ old('ProgressivoInvio', $data['ProgressivoInvio']) }}" placeholder="00001" class="form-control @error('ProgressivoInvio') is-invalid @enderror">
+                        <input id="ProgressivoInvio" type="number" name="ProgressivoInvio" value="{{ old('ProgressivoInvio', $data['ProgressivoInvio']) }}" placeholder="00001" class="form-control @error('ProgressivoInvio') is-invalid @enderror">
                         @error('ProgressivoInvio')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -46,7 +46,16 @@
                     <div class="col">
                     <!--  INPUT FormatoTrasmissione -->
                         <label for="FormatoTrasmissione"> FormatoTrasmissione: </label>
-                        <input id="FormatoTrasmissione" type="text" name="FormatoTrasmissione" value="{{ old('FormatoTrasmissione', $data['FormatoTrasmissione'] ) }}" placeholder="FPA12" class="form-control @error('FormatoTrasmissione') is-invalid @enderror">
+
+                        <select id="FormatoTrasmissione" name="FormatoTrasmissione" class="form-select form-select-md" aria-label="FormatoTrasmissione">
+                            <option value="FPA12" @if(old('FormatoTrasmissione') === "FPA12") selected  @endif>
+                               FPA12
+                            </option>
+                            <option value="FPR12" @if(old('FormatoTrasmissione') === "FPR12") selected @endif>
+                               FPR12
+                            </option>
+                        </select>                       
+                                                
                         @error('FormatoTrasmissione')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

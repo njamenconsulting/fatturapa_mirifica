@@ -68,7 +68,7 @@ class InvoiceController extends Controller
         if ($inputForm) {
 
             //Generating of filename where XML contents will be loaded
-            $inputForm['filename'] = 'IT'.date("dmY")."".time().'.xml';
+            $inputForm['filename'] = 'IT'.date("dmY")."".time().'_FPA02.xml';
             //Store into the database and get inserted model instance who is returned
             $id = $invoiceRepository->store($inputForm);
 

@@ -7,8 +7,13 @@ class XmlGeneratorService
 {
     public static function XmlGenerator($array)
     {
+        if(isset($array['FormatoTrasmissione']))
+        {
+            if ($array['FormatoTrasmissione']==='FPA12') $invoice = new FatturaElettronica('FPA12');
+            else $invoice = new FatturaElettronica('FPR12');
+        }
         //Create a custom template invoice to be used later
-        $invoice = new FatturaElettronica('FPA12');
+        
         //Get the number DettaglioLinee added
         $nbLinesAdded =count($array['Descrizione']);
         $invoice->setLineItemCount($nbLinesAdded);
@@ -29,6 +34,7 @@ class XmlGeneratorService
         }
 
         $invoice->setValue('ProgressivoInvio', $array['ProgressivoInvio']);
+        $invoice->setValue('FormatoTrasmissione', $array['FormatoTrasmissione']);
         $invoice->setValue('CodiceDestinatario',  $array['CodiceDestinatario']);
 
         $invoice->setValues('IdTrasmittente', array(
