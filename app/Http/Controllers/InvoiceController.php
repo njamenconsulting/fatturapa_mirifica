@@ -65,10 +65,12 @@ class InvoiceController extends Controller
         //Retrieve form data
         $inputForm = $request->except(['_token','submit']);
         
-        if ($inputForm) {
+        if (isset($inputForm)) {
 
+            if($inputForm['FormatoTrasmissione']==='FPA12') $ft = '_FPA12';
+            if($inputForm['FormatoTrasmissione']==='FPR12') $ft = '_FPR12';
             //Generating of filename where XML contents will be loaded
-            $inputForm['filename'] = 'IT'.date("dmY")."".time().'_FPA02.xml';
+            $inputForm['filename'] = 'IT'.date("dmY").''.time().''. $ft .'xml';
             //Store into the database and get inserted model instance who is returned
             $id = $invoiceRepository->store($inputForm);
 
