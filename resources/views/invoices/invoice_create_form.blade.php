@@ -7,8 +7,7 @@
         <a class="btn btn-primary" href=" {{ route('invoiceEdit') }} " role="button">fill out the forms</a>
     </p>
 
-
-    <form name = "formInvoice" id="formInvoice" method="post" action="{{ route('invoiceCheck') }}"}}>
+    <form name = "formInvoice" id="formInvoice" method="post" action="{{ route('invoiceStore') }}"}}>
         @csrf
         <input  type="hidden" name="filename" value="{{ old('filename') }}">
 
@@ -45,8 +44,17 @@
                     </div>
                     <div class="col">
                     <!--  INPUT FormatoTrasmissione -->
-                        <label for="FormatoTrasmissione"> FormatoTrasmissione: </label>
-                        <input id="FormatoTrasmissione" type="text" name="FormatoTrasmissione" value="{{ old('FormatoTrasmissione') }}" placeholder="FPA12" class="form-control @error('FormatoTrasmissione') is-invalid @enderror">
+                    <label for="FormatoTrasmissione"> FormatoTrasmissione: </label>
+                    <select id="FormatoTrasmissione" name="FormatoTrasmissione" class="form-select form-select-md" aria-label="FormatoTrasmissione">
+                           
+                    <option value="FPA12" @if(old('FormatoTrasmissione') === "FPA12") selected  @endif>
+                               FPA12
+                            </option>
+                            <option value="FPR12" @if(old('FormatoTrasmissione') === "FPR12") selected @endif>
+                               FPR12
+                            </option>
+                        </select>    
+
                         @error('FormatoTrasmissione')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
